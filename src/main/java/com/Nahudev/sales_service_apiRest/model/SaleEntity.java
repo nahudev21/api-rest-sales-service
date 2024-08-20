@@ -40,12 +40,12 @@ public class SaleEntity {
     private String iva;
 
     @Column(name = "fecha_emision")
-    private Date issueDate;
+    private String issueDate;
 
     @Column(name = "precio_total")
     private Double totalPrice;
 
-    @Column(name = "productos")
+    @ElementCollection
     private List<String> products;
 
 }

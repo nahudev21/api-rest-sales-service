@@ -32,7 +32,7 @@ public class SaleDTO {
 
     private String iva;
 
-    private Date issueDate;
+    private String issueDate;
 
     private Double totalPrice;
 
