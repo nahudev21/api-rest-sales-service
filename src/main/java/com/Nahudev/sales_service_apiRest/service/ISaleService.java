@@ -12,7 +12,7 @@ public interface ISaleService {
 
     public void deleteSale(Long id);
 
-    public SaleDTO getSaleByUserId(Long user_id);
+    public SaleDTO getSaleByUser(Long id);
 
     public List<SaleDTO> listSaleFromUser(Long user_id);
 

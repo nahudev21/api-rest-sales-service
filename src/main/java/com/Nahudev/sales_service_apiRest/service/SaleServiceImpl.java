@@ -4,6 +4,7 @@ import com.Nahudev.sales_service_apiRest.dto.SaleDTO;
 import com.Nahudev.sales_service_apiRest.dto.ShoppingCartClientDTO;
 import com.Nahudev.sales_service_apiRest.dto.ShoppingCartFromUserClientDTO;
 import com.Nahudev.sales_service_apiRest.dto.UserClientDTO;
+import com.Nahudev.sales_service_apiRest.exceptions.ResourceNotFoundException;
 import com.Nahudev.sales_service_apiRest.model.SaleEntity;
 import com.Nahudev.sales_service_apiRest.repository.ISaleRepository;
 import com.Nahudev.sales_service_apiRest.repository.IShoppingCartClientRepository;
@@ -80,8 +81,11 @@ public class SaleServiceImpl implements ISaleService{
     }
 
     @Override
-    public SaleDTO getSaleByUserId(Long user_id) {
-        return null;
+    public SaleDTO getSaleByUser(Long id) {
+        SaleEntity saleFound = saleRepository.findById(id).orElseThrow(() -> new
+                ResourceNotFoundException("Venta", "id", id));
+
+        return mapOutSaleDTO(saleFound);
     }
 
     @Override

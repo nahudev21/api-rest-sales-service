@@ -22,4 +22,10 @@ public class SaleController {
 
     }
 
+    @GetMapping("/getSaleByUser/{id}")
+    @ResponseBody
+    public ResponseEntity<SaleDTO> getSaleByUser(@PathVariable(name = "id") Long id) {
+        return new ResponseEntity<>(saleService.getSaleByUser(id), HttpStatus.OK);
+    }
+
 }
