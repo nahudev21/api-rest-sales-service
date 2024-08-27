@@ -66,6 +66,7 @@ public class SaleServiceImpl implements ISaleService{
         saleEntity.setTotalPrice(totalPrice);
         saleEntity.setProducts(nameProducts);
         saleRepository.save(saleEntity);
+        shoppingCartClient.deleteShoppingCart(userId);
 
         return mapOutSaleDTO(saleEntity);
     }
